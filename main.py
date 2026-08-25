@@ -31,7 +31,7 @@ QUESTIONS = [
             "d) Man braucht nichts zu verändern, das passt auch so"
         ],
         "correct": 0,
-        "image": "images/q2_gabelzinken.png"
+        "image": "imagesq2_gabelzinken.png"
     },
     {
         "id": 3,
@@ -114,7 +114,7 @@ QUESTIONS = [
             "c) Bildfolge c"
         ],
         "correct": 0,
-        "image": "images/q9_stapeln_reihenfolge.png"
+        "image": "imagesq9_stapeln_reihenfolge.png"
     },
     {
         "id": 10,
@@ -150,7 +150,7 @@ QUESTIONS = [
             "d) Situation d"
         ],
         "correct": [0, 1, 2],
-        "image": "images/q12_kippgefahr.png"
+        "image": "imagesq12_kippgefahr.png"
     },
     {
         "id": 13,
@@ -174,7 +174,7 @@ QUESTIONS = [
             "d) Kennzeichnung Ladebuchse"
         ],
         "correct": 0,
-        "image": "images/q14_schwerpunkt_symbol.png"
+        "image": "imagesq14_schwerpunkt_symbol.png"
     },
     {
         "id": 15,
@@ -270,7 +270,7 @@ QUESTIONS = [
             "d) Es besteht erhöhte Kippgefahr"
         ],
         "correct": [0, 3],
-        "image": "images/q22_transport_hoehe.png"
+        "image": "imagesq22_transport_hoehe.png"
     },
     {
         "id": 23,
@@ -282,7 +282,7 @@ QUESTIONS = [
             "d) Zinkenverstellgerät"
         ],
         "correct": 1,
-        "image": "images/q23_anbaugeraet.png"
+        "image": "imagesq23_anbaugeraet.png"
     },
     {
         "id": 24,
@@ -304,7 +304,7 @@ QUESTIONS = [
             "b) Nein"
         ],
         "correct": 0,
-        "image": "images/q25_tragfaehigkeitsdiagramm.png"
+        "image": "imagesq25_tragfaehigkeitsdiagramm.png"
     },
     {
         "id": 26,
@@ -352,7 +352,7 @@ QUESTIONS = [
             "d) Situation d"
         ],
         "correct": 3,
-        "image": "images/q29_geparkt.png"
+        "image": "imagesq29_geparkt.png"
     },
     {
         "id": 30,
@@ -398,7 +398,7 @@ QUESTIONS = [
             "d) Abbildung d"
         ],
         "correct": [1, 2],
-        "image": "images/q33_schwerpunkt_palette.png"
+        "image": "imagesq33_schwerpunkt_palette.png"
     },
     {
         "id": 34,
@@ -421,7 +421,7 @@ QUESTIONS = [
             "c) Abbildung c"
         ],
         "correct": 2,
-        "image": "images/q35_kippgefahr_vorne.png"
+        "image": "imagesq35_kippgefahr_vorne.png"
     },
     {
         "id": 36,
@@ -443,7 +443,7 @@ QUESTIONS = [
             "b) Die maximale Hubhöhe wird umso geringer, je weiter hinten sich der Schwerpunkt des Staplers befindet"
         ],
         "correct": 0,
-        "image": "images/q37_hebelgesetz.png"
+        "image": "imagesq37_hebelgesetz.png"
     },
     {
         "id": 38,
@@ -503,7 +503,7 @@ QUESTIONS = [
             "d) 4.250 kg"
         ],
         "correct": 1,
-        "image": "images/q42_traglastdiagramm.png"
+        "image": "imagesq42_traglastdiagramm.png"
     },
     {
         "id": 43,
@@ -575,7 +575,7 @@ QUESTIONS = [
             "d) Gesamtgewicht des Gabelstaplers"
         ],
         "correct": [1, 2],
-        "image": "images/q48_traglastdiagramm.png"
+        "image": "imagesq48_traglastdiagramm.png"
     },
     {
         "id": 49,
@@ -631,7 +631,7 @@ if q["image"]:
     if os.path.exists(q["image"]):
         st.image(q["image"], use_container_width=True)
     else:
-        st.info(f"🖼 Изображение: `{q['image']}`")
+        st.info(f"🖼 Изображение: `{q['image']}` не найдено.")
 
 is_multiselect = isinstance(q["correct"], list)
 
