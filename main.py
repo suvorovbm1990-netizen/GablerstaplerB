@@ -102,7 +102,7 @@ QUESTIONS = [
             "c) Gabelzinken sofort auswechseln lassen, anderenfalls Gerät stilllegen und absichern",
             "d) Vorgesetzten informieren, wenn Auswechslung nicht möglich ist"
         ],
-        "correct": 2,
+        "correct": [2, 3],
         "image": None
     },
     {
