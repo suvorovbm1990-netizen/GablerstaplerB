@@ -185,7 +185,7 @@ QUESTIONS = [
             "c) Mit abgesenkter Last",
             "d) Ein Gabelstapler kann in Kurven nicht umkippen"
         ],
-        "correct": 1,
+        "correct": 0,
         "image": None
     },
     {
@@ -197,7 +197,7 @@ QUESTIONS = [
             "c) Sonderlackierung",
             "d) Warnblinker"
         ],
-        "correct": [0, 1],
+        "correct": [0, 1, 3],
         "image": None
     },
     {
