@@ -269,7 +269,7 @@ QUESTIONS = [
             "c) Es besteht kein Problem",
             "d) Es besteht erhöhte Kippgefahr"
         ],
-        "correct": [0, 3],
+        "correct": [0, 1, 3],
         "image": "imagesq22_transport_hoehe.png"
     },
     {
