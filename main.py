@@ -614,12 +614,12 @@ if "submitted" not in st.session_state:
     st.session_state.submitted = False
 
 st.title("🚜 Gabelstapler Prüfungstrainer (50 Fragen)")
-st.write("Интерактивный тренажер для подготовки к экзамену на погрузчик.")
+st.write("Interaktiver Trainer zur Vorbereitung auf die Gabelstapler-Prüfung.")
 
 # Progress bar
 progress = (st.session_state.current_index + 1) / len(QUESTIONS)
 st.progress(progress)
-st.caption(f"Вопрос {st.session_state.current_index + 1} из {len(QUESTIONS)}")
+st.caption(f"Frage {st.session_state.current_index + 1} von {len(QUESTIONS)}")
 
 # Current Question Data
 q = QUESTIONS[st.session_state.current_index]
@@ -631,12 +631,12 @@ if q["image"]:
     if os.path.exists(q["image"]):
         st.image(q["image"], use_container_width=True)
     else:
-        st.info(f"🖼 Изображение: `{q['image']}` не найдено.")
+        st.info(f"🖼 Bild: `{q['image']}` nicht gefunden.")
 
 is_multiselect = isinstance(q["correct"], list)
 
 if is_multiselect:
-    st.warning("⚠️ Внимание: несколько правильных ответов!")
+    st.warning("⚠️ Achtung: Mehrere Antworten sind richtig!")
     user_choices = []
     for idx, opt in enumerate(q["options"]):
         checked = st.checkbox(opt, key=f"q_{q['id']}_opt_{idx}")
@@ -644,7 +644,7 @@ if is_multiselect:
             user_choices.append(idx)
 else:
     user_choice = st.radio(
-        "Выберите ответ:",
+        "Antwort auswählen:",
         options=range(len(q["options"])),
         format_func=lambda idx: q["options"][idx],
         key=f"q_{q['id']}_radio"
@@ -654,7 +654,7 @@ else:
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    if st.button("Проверить ответ", type="primary"):
+    if st.button("Antwort prüfen", type="primary"):
         st.session_state.submitted = True
         if is_multiselect:
             correct_set = set(q["correct"])
@@ -670,16 +670,16 @@ if st.session_state.submitted:
         correct_set = set(q["correct"])
         user_set = set(user_choices)
         if correct_set == user_set:
-            st.success("✅ Отлично! Все правильные варианты выбраны.")
+            st.success("✅ Richtig! Alle korrekten Optionen wurden ausgewählt.")
         else:
-            st.error("❌ Неверно. Правильные варианты:")
+            st.error("❌ Falsch. Die richtigen Optionen sind:")
             for idx in q["correct"]:
                 st.write(f"- {q['options'][idx]}")
     else:
         if user_choices == q["correct"]:
-            st.success("✅ Правильно!")
+            st.success("✅ Richtig!")
         else:
-            st.error(f"❌ Неверно. Правильный ответ: {q['options'][q['correct']]}")
+            st.error(f"❌ Falsch. Die richtige Antwort ist: {q['options'][q['correct']]}")
 
 st.divider()
 
@@ -687,19 +687,19 @@ st.divider()
 nav_col1, nav_col2, nav_col3 = st.columns([1, 1, 1])
 
 with nav_col1:
-    if st.button("⬅️ Назад", disabled=st.session_state.current_index == 0):
+    if st.button("⬅️ Zurück", disabled=st.session_state.current_index == 0):
         st.session_state.current_index -= 1
         st.session_state.submitted = False
         st.rerun()
 
 with nav_col3:
     if st.session_state.current_index < len(QUESTIONS) - 1:
-        if st.button("Вперёд ➡️"):
+        if st.button("Weiter ➡️"):
             st.session_state.current_index += 1
             st.session_state.submitted = False
             st.rerun()
     else:
-        if st.button("🎉 Завершить тест"):
+        if st.button("🎉 Test beenden"):
             st.balloons()
             score_count = sum(1 for v in st.session_state.answers.values() if v)
-            st.success(f"Тест завершён! Ваш результат: {score_count} / {len(QUESTIONS)}")
+            st.success(f"Test abgeschlossen! Ihr Ergebnis: {score_count} / {len(QUESTIONS)}")
